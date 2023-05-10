@@ -1,0 +1,16 @@
+/*
+CREATED BY: JORDAN GODWIN
+CREATE DATE: 05/10/2023
+DESCRIPTION: HOW MANY INVOICES WERE BILLED TO THE CITY OF BRUSSELS
+*/
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	total
+FROM
+	Invoice
+WHERE
+	BillingCity = 'Brussels'
+ORDER BY
+	InvoiceDate
