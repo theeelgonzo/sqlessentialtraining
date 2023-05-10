@@ -1,0 +1,18 @@
+/*
+CREATED BY: JORDAN GODWIN
+CREATE DATE: 05/10/2023
+DESCRIPTION: HOW MANY INVOICES WERE BILLED IN CITIES THAT START WITH B
+*/
+-- % is wild card character, works in conjunction with LIKE operator, don't care what comes next
+
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	total
+FROM
+	Invoice
+WHERE
+	BillingCity LIKE 'B%'
+ORDER BY
+	InvoiceDate
