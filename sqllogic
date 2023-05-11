@@ -1,0 +1,28 @@
+/*
+CREATED BY: JORDAN GODWIN
+CREATE DATE: 05/10/2023
+DESCRIPTION: HOW MANY INVOICES WERE BILLED IN CITIES THAT START WITH B
+*/
+-- % is wild card character, works in conjunction with LIKE operator, don't care what comes next
+
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	total,
+	CASE
+	WHEN total < 2.00 THEN 'Baseline Purchase'
+	WHEN total BETWEEN 2.00 AND 6.99 THEN'Low Purchase'
+	WHEN total BETWEEN 7.00 AND 15.00 THEN 'Target Purchase'
+	ELSE 'Top Performer'
+	END AS PurchaseType
+FROM
+	Invoice
+WHERE
+	(BillingCity LIKE 'P%'
+	OR
+	BillingCity LIKE 'D%')
+	AND
+	total > 1.98
+ORDER BY
+	InvoiceDate
