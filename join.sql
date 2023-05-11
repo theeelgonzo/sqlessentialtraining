@@ -5,10 +5,17 @@ DESCRIPTION: JOINS
 */
 
 SELECT
-	*
+	c.LastName,
+	c.FirstName,
+	i.InvoiceId,
+	i.CustomerId,
+	date(i.InvoiceDate) AS 'Invoice Date',
+	i.total
 FROM
-	Invoice
+	Invoice AS i
 INNER JOIN
-	Customer
+	Customer AS c
 ON
-	Invoice.CustomerId = Customer.CustomerId
+	i.CustomerId = c.CustomerId
+ORDER BY
+	c.CustomerId
