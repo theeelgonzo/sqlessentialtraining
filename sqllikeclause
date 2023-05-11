@@ -13,6 +13,8 @@ SELECT
 FROM
 	Invoice
 WHERE
-	BillingCity LIKE 'B%'
+	BillingCity LIKE 'P%'
+	OR
+	LIKE '%D'
 ORDER BY
 	InvoiceDate
