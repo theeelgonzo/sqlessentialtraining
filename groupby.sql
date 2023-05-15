@@ -10,6 +10,25 @@ SELECT
 
 FROM
 	Invoice
+WHERE
+	BillingCity LIKE 'B%'
+GROUP BY
+	BillingCity
+HAVING
+	avg(total) > 5.00
+ORDER BY
+	BillingCity /*
+CREATED BY: JORDAN GODWIN
+CREATE DATE: 05/15/2023
+DESCRIPTION: GROUPING IN SQL | WHAT ARE THE AVERAGE INVOICE TOTALS BY CITY 
+*/
+
+SELECT
+	BillingCity,
+	round(AVG(total), 2)
+
+FROM
+	Invoice
 GROUP BY
 	BillingCity
 ORDER BY
