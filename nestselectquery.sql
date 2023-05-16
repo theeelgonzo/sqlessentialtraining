@@ -1,0 +1,20 @@
+/*
+CREATED BY: JORDAN GODWIN
+CREATE DATE: 05/16/2023
+DESCRIPTION: SUBQUERY IN SELECT CLAUSE TO COMPARE AGAINST GLOBAL AVERAGE
+*/
+
+SELECT
+	BillingCity,
+	AVG(total) as 'City Average',
+	(SELECT AVG(TOTAL) FROM Invoice) as 'Global Average'
+	
+
+FROM
+	Invoice
+
+GROUP BY
+	BillingCity
+	
+ORDER BY
+	BillingCity
